@@ -9,14 +9,6 @@
 			background-image: <%= background_img @render[:background] %>;
 		}
 
-		a:visited {
-			color: gray;	
-		}
-
-		a:hover {
-			text-transform: 
-		}
-
 		.title {
 			position: absolute;
 			padding-left: 10px;
@@ -34,7 +26,7 @@
 			text-shadow: 0px 2px 3px #555;
 		}
 
-		.tag-part {
+		.tag {
 			color: #FFFFFF;
 			list-style-type:none;
 			font-family: monospace;
@@ -45,6 +37,7 @@
 			padding-right: 2px;
 			border: 1px solid #ffffff;
 			outline: 1px solid #8AC007;
+			line-height: 150%;
 		}
 
 		.description-part {
@@ -71,11 +64,11 @@
 		</div>
 		<div class="description">
 			<p class="description-part">
-				<%= @render[:brife][0..300] %>
+				<%= @render[:plain].byteslice(0..600) %>
 				<%= link_to "...Read More", @render[:url] %>
 			</p>
 			<% @render[:keywords][0..8].each do |keyword| %>
-				<%= keyword_tag keyword.first %>
+				<%= keyword_tag keyword %>
 			<% end unless @render.nil? %>	
 		</div>
 	</div>

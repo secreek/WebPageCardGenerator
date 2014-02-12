@@ -7,7 +7,7 @@ module URI
 	LIMITIED = 5
 
 	def self.html_get_web_uri uri, count = 0
-		return uri if count >= LIMITIED
+		return nil if count >= LIMITIED
 		response = Net::HTTP.get_response(URI.parse(uri))
 		case (response)
 		when Net::HTTPSuccess

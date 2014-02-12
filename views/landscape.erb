@@ -2,8 +2,8 @@
 	<style type="text/css">
 
 		.card {
-			height: 280px;
-			width: 720px;
+			max-width: 780px;
+			overflow: auto;
 			padding: 10px 10px 10px 10px;
 			margin: 10px auto;
 			box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
@@ -24,8 +24,8 @@
 		}
 
 		.text-part {
-			width: 440px;
-			float:left;
+			max-width: 450px;
+			float: left;
 			margin-left: 20px;
 		}
 
@@ -41,7 +41,7 @@
 			overflow: hidden;
 		}
 
-		.tag-part {
+		.tag {
 			color: #FFFFFF;
 			list-style-type:none;
 			display: inline;
@@ -52,26 +52,25 @@
 			margin: 1px 1px auto;
 			border: 1px solid #ffffff;
 			outline: 1px solid #8AC007;
+			line-height: 150%;
 		}
 	</style>
 </head>
 
 <div class="card">
-	<% if @render[:image] %>
-		<div class="image-part">
-			<%= img @render[:image] %>
-		</div>
-	<% end %>
+	<div class="image-part">
+		<%= img @render[:image] %>
+	</div>
 	<div class="text-part">
 		<h1 class="title-part">
 			<%= link_to @render[:title], @render[:url] %>
 		</h1>
 		<p class="description-part">
-			<%= @render[:brife][0..300] %>
+			<%= @render[:plain].byteslice(0..500) %>
 		</p>
 		<ul style="padding-left: 0px">
 			<% @render[:keywords][0..6].each do |keyword| %>
-					<%= keyword_tag keyword.first %>
+					<%= keyword_tag keyword %>
 			<%	end unless @render.nil? %>
 		</ul>
 	</div>

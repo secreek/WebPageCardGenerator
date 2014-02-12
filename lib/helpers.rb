@@ -14,7 +14,7 @@ helpers do
   end
 
   def keyword_tag keyword
-    "<li class=\"tag-part\">%s</li>" % keyword
+    "<li class=\"tag\">%s</li>" % keyword
   end
 
   def background_img texture
