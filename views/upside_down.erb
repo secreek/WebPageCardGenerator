@@ -1,0 +1,82 @@
+<head>
+	<style type="text/css">
+
+		.card {
+			width: 720px;
+			padding: 10px 10px 10px 10px;
+			margin: 10px auto;
+			box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000;
+			background-image: <%= background_img @render[:background] %>;
+		}
+
+		a:visited {
+			color: gray;	
+		}
+
+		a:hover {
+			text-transform: 
+		}
+
+		.title {
+			position: absolute;
+			padding-left: 10px;
+			padding-right: 15px;
+			bottom: 0;
+			z-index: 100;
+			font-family: "Avenir";
+			color: white;
+			font-weight: bold;
+			font-size: 40px;
+			line-height: 140%;
+			background: rgb(0, 0, 0); /* fallback color */
+			background: rgba(0, 0, 0, 0.4);
+			margin: 0;
+			text-shadow: 0px 2px 3px #555;
+		}
+
+		.tag-part {
+			color: #FFFFFF;
+			list-style-type:none;
+			font-family: monospace;
+			font-size: 16px;
+			display: inline;
+			background-color: #8AC007;
+			padding-left: 2px;
+			padding-right: 2px;
+			border: 1px solid #ffffff;
+			outline: 1px solid #8AC007;
+		}
+
+		.description-part {
+			font-family: "Seravek";
+			overflow: hidden;
+			font-size: 18px;
+		}
+
+		.cover {
+			position: relative;
+			width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="card">
+		<div class="cover">
+			<%= img @render[:image], "style=\"width:100%\"" %>
+			<h2 class="title">
+				<%= link_to @render[:title], @render[:url] %>
+			</h2>
+		</div>
+		<div class="description">
+			<p class="description-part">
+				<%= @render[:brife][0..300] %>
+				<%= link_to "...Read More", @render[:url] %>
+			</p>
+			<% @render[:keywords][0..8].each do |keyword| %>
+				<%= keyword_tag keyword.first %>
+			<% end unless @render.nil? %>	
+		</div>
+	</div>
+</body>
