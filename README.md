@@ -5,6 +5,11 @@ WebPageCardGenerator can help you generate a card which contains page's title an
 
 ## Screenshot
 
+![landscape layout](https://raw2.github.com/secreek/WebPageCardGenerator/master/screenshot/layout-landscape.png)
+landscape layout.
+
+![updown layout](https://raw2.github.com/secreek/WebPageCardGenerator/master/screenshot/layout-updown.png)
+Updown layout.
 
 ## Todo
 
